@@ -7,20 +7,16 @@
 <body>
 
     <div>
-        <h1><a href="">Django Girls Blog</a></h1>
+        <h1><a href="/">Django Girls Blog</a></h1>
     </div>
 
-    <div>
-        <p>published: 31.01.2017, 15:44</p>
-        <h2><a href="">My First Post</a></h2>
-        <p>Some queer text that streches on and on without meaning. Such is life.</p>
-    </div>
-
-    <div>
-        <p>published: 31.01.2017, 15:45</p>
-        <h2><a href="">Follow Up Post</a></h2>
-        <p>Something that follows the first post to make it more livelier.</p>
-    </div>
+    {% for post in posts %}
+        <div>
+            <p>published: {{ post.published_date }}</p>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text | linebreaksbr }}</p>
+        </div>
+    {% endfor %}
 
 </body>
 </html>
